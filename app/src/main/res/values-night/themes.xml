@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Floodrescue" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="colorPrimary">@color/fr_primary</item>
+        <item name="colorOnPrimary">@color/fr_text_light</item>
+
+        <item name="colorSecondary">@color/fr_surface</item>
+        <item name="colorOnSecondary">@color/fr_text_dark</item>
+
+        <item name="android:colorBackground">@color/fr_background</item>
+        <item name="colorSurface">@color/fr_surface</item>
+        <item name="colorOnSurface">@color/fr_text_dark</item>
+
+        <item name="android:statusBarColor">@color/fr_primary_dark</item>
+
+    </style>
+
+</resources>

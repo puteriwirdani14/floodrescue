@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fr_primary">#0056D2</color>
+    <color name="fr_primary_variant">#00A3FF</color>
+    <color name="fr_background">#0D253F</color>
+    <color name="fr_surface">#FFFFFF</color>
+
+    <color name="fr_on_primary">#FFFFFF</color>
+    <color name="fr_on_surface">#111111</color>
+
+    <color name="fr_text_light">#FFFFFF</color>
+    <color name="fr_text_dark">#111111</color>
+    <color name="fr_primary_dark">#003B91</color>
+
+    <!-- Warna Biru Pastel untuk Highlight -->
+    <color name="fr_pastel_blue">#D1E9FF</color>
+</resources>

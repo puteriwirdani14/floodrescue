@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">floodrescue</string>
+
+    <string name="default_web_client_id">
+        449369003860-ufpmemvtd8iunu88fr5lkntlt75lk8l2.apps.googleusercontent.com
+    </string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+</resources>

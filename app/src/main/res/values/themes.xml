@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Floodrescue" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/fr_primary</item>
+        <item name="colorOnPrimary">@color/fr_on_primary</item>
+
+        <item name="colorSecondary">@color/fr_primary_variant</item>
+        <item name="colorOnSecondary">@color/fr_on_primary</item>
+
+        <item name="android:colorBackground">@color/fr_background</item>
+        <item name="colorSurface">@color/fr_surface</item>
+        <item name="colorOnSurface">@color/fr_on_surface</item>
+
+        <!-- Optional: status bar -->
+        <item name="android:statusBarColor">@color/fr_primary</item>
+
+        <!-- 👉 Tukar warna Highlight dalam Drawer Menu -->
+        <item name="colorControlHighlight">@color/fr_pastel_blue</item>
+    </style>
+
+    <!-- Gaya Animasi Dialog -->
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <!-- Gaya Dialog Full Screen -->
+    <style name="Dialog.FullScreen" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/fr_surface</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+        <item name="android:statusBarColor">@color/fr_primary</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+
+</resources>
