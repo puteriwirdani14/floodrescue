@@ -67,7 +67,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:inputType="textEmailAddress" />
+                    android:inputType="textEmailAddress"
+                    android:textColor="#1E293B"
+                    android:textColorHint="#94A3B8" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Password -->
@@ -77,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#2563EB"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,7 +87,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Password"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:textColor="#1E293B"
+                    android:textColorHint="#94A3B8" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <!-- Sign In Button -->

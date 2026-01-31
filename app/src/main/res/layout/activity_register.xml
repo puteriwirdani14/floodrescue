@@ -66,8 +66,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPersonName"
-                android:textColor="#0F172A"
-                android:textColorHint="#64748B" />
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Email -->
@@ -87,8 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
-                android:textColor="#0F172A"
-                android:textColorHint="#64748B" />
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Phone -->
@@ -108,8 +108,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="phone"
-                android:textColor="#0F172A"
-                android:textColorHint="#64748B" />
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Password -->
@@ -120,6 +120,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#2563EB"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phoneLayout">
@@ -129,8 +131,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="#0F172A"
-                android:textColorHint="#64748B" />
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Confirm Password -->
@@ -141,6 +143,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:hint="Confirm Password"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="#2563EB"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/passwordLayout">
@@ -150,8 +154,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
-                android:textColor="#0F172A"
-                android:textColorHint="#64748B" />
+                android:textColor="#1E293B"
+                android:textColorHint="#94A3B8" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Register Button -->
