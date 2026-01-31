@@ -25,8 +25,8 @@ public class AboutUsActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("About Us");
         }
 
-        // URL to open - Updated to your project path
-        final String githubUrl = "https://github.com/puter/floodrescue";
+        // URL to open - Updated with your actual GitHub repository URL
+        final String githubUrl = "https://github.com/puteriwirdani14/floodrescue";
 
         // Make GitHub button clickable
         View layoutGithub = findViewById(R.id.layoutGithub);
