@@ -1,12 +1,13 @@
 package com.example.floodrescue;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
-import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 import com.example.floodrescue.api.ApiClient;
 import com.example.floodrescue.models.Report;
 import com.example.floodrescue.models.SafeLocation;
+import com.example.floodrescue.ui.ReportDialog;
 import com.example.floodrescue.utils.SharedPrefManager;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -47,6 +49,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private String userName = "User";
     private TextView tvHello;
     private TextView tvLocation;
+    private double lastLat, lastLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +86,30 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (mapFragment != null) {
             mapFragment.getMapAsync(this);
         }
+
+        // New Buttons logic
+        Button btnReport = findViewById(R.id.btnReportIncident);
+        Button btnList = findViewById(R.id.btnIncidentList);
+
+        btnReport.setOnClickListener(v -> {
+            if (lastLat == 0 && lastLng == 0) {
+                Toast.makeText(this, "Wait for location detection...", Toast.LENGTH_SHORT).show();
+            } else {
+                ReportDialog dialog = new ReportDialog(lastLat, lastLng, () -> {
+                    if (mMap != null) {
+                        mMap.clear();
+                        loadUserReports();
+                        loadShelters();
+                    }
+                });
+                dialog.show(getSupportFragmentManager(), "ReportDialog");
+            }
+        });
+
+        btnList.setOnClickListener(v -> {
+            Intent intent = new Intent(this, IncidentListActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -95,8 +122,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         enableUserLocation();
-        loadUserReports(); // Marker dari Reports table
-        loadShelters();    // Marker dari Locations table
+        loadUserReports();
+        loadShelters();
     }
 
     private void enableUserLocation() {
@@ -107,9 +134,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.setMyLocationEnabled(true);
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
             if (location != null) {
-                LatLng currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                lastLat = location.getLatitude();
+                lastLng = location.getLongitude();
+                LatLng currentLatLng = new LatLng(lastLat, lastLng);
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentLatLng, 15f));
-                updateAddressText(location.getLatitude(), location.getLongitude());
+                updateAddressText(lastLat, lastLng);
             } else {
                 if (tvLocation != null) tvLocation.setText("Location not found. Please enable GPS.");
             }
@@ -135,7 +164,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
-    // Ambil marker daripada table 'reports'
     private void loadUserReports() {
         ApiClient.getInstance().getLocations().enqueue(new Callback<List<Report>>() {
             @Override
@@ -159,7 +187,6 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         });
     }
 
-    // Ambil marker daripada table 'locations' (Shelter)
     private void loadShelters() {
         ApiClient.getInstance().getShelters().enqueue(new Callback<List<SafeLocation>>() {
             @Override
@@ -171,7 +198,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                 .position(pos)
                                 .title("SHELTER: " + loc.getName())
                                 .snippet(loc.getDescription())
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE))); // Warna Biru
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
                     }
                 }
             }

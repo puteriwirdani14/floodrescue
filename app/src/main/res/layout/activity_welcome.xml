@@ -433,5 +433,6 @@
         android:background="#FFFFFF"
         app:headerLayout="@layout/nav_header_drawer"
         app:itemTextColor="#0F172A"
+        app:itemIconTint="#0F172A"
         app:menu="@menu/drawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>
